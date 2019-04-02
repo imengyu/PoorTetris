@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>HTML5 Tetris</title>
+    <script src="h5.tetris.utils.js" charset="utf-8"></script>
+    <script src="h5.tetris.defs.js" charset="utf-8"></script>
+    <script src="h5.tetris.js" charset="utf-8"></script>
+    <style>
+        .game {
+            display: inline-block;
+            border: 1px solid #000;
+        }
+
+        .btns {
+            position: relative;
+            display: inline-block;
+            width: 350px;
+            height: 160px;
+        }
+
+        .btns-out-line {
+            position: relative;
+            display: inline-block;
+            width: 350px;
+            height: 160px;
+            border: 1px solid #6e6e6e;
+        }
+
+        .btns button {
+            position: absolute;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <canvas id="gameCanvas" width="350" height="400" onclick="startGame()"></canvas>
+    </div><br />
+    <div class="btns-out-line">
+        <div class="btns" id="btns" style="display:none;">
+            <div id="btns-ctl">
+                <button onclick="javascript:if (gameCanControl())rotateCurrentBlock()"
+                    style="left:90px;top:20px">▲</button>
+                <button onclick="javascript:if (gameCanControl())moveCurrentBlock(true)"
+                    style="left:30px;top:50px">◀</button>
+                <button onclick="javascript:if (gameCanControl())moveCurrentBlock(false)"
+                    style="left:150px;top:50px">▶</button>
+                <button onclick="javascript:if (gameCanControl())fastDropBlock()" style="left:90px;top:80px">▼</button>
+            </div>
+
+            <button onclick="javascript:switchGame()" style="left:30px;bottom:20px;width:180px"
+                id="btn-pause">暂停/继续</button>
+            <button onclick="javascript:restartGame()" style="left:220px;bottom:20px;">重来</button>
+            <button onclick="javascript:quitGame()" style="left:280px;bottom:20px;">退出</button>
+        </div>
+    </div>
+</body>
+
+</html>
